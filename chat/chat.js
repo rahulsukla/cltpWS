@@ -58,10 +58,10 @@
   var Chat = React.createClass({
     getInitialState: function() {
       return {
-        user: null,
-        chatlines: [],
-        lastUpdate: 0,
-        refreshId: null
+        user       : null,
+        chatlines  : [],
+        lastUpdate : 0,
+        refreshId  : null
       };
     },
 
@@ -78,21 +78,21 @@
 
     getChats: function() {
       reqwest({
-        url: "/chat?since=" + this.state.lastUpdate,
-        method: "get",
-        type: "json",
-        success: this.updateChats
+        url     : "/chat?since=" + this.state.lastUpdate,
+        method  : "get",
+        type    : "json",
+        success : this.updateChats
       });
     },
 
     saveChat: function(text) {
       var self = this;
       reqwest({
-        url: "/chat?since=" + this.state.lastUpdate,
-        method: "post",
-        type: "json",
-        data: { user: this.state.user, at: new Date().getTime(), text: text },
-        success: this.updateChats
+        url     : "/chat?since=" + this.state.lastUpdate,
+        method  : "post",
+        type    : "json",
+        data    : { user: this.state.user, at: new Date().getTime(), text: text },
+        success : this.updateChats
       });
     },
 
@@ -110,7 +110,7 @@
     render: function() {
       return (
           <div className="chat">
-            <ChatBox chatlines={this.state.chatlines}/>
+            <ChatBox chatlines={this.state.chatlines} />
             <ChatInput user={this.state.user} onSubmit={this.saveChat} />
           </div>
       );
