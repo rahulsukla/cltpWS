@@ -1,0 +1,19 @@
+<html>
+<head>
+	<script type="text/javascript" src="../lib/react-0.13.1.js"></script>
+</head>
+
+<body>
+	<div id="container">
+
+	</div>
+	<script type="text/javascript">
+		var hello = React.createClass({
+			render: function (){
+				return React.DOM.div({className: "rahul", id: "yoyo"}, "hello " + this.props.name);
+			}
+		});
+		React.render(React.createElement(hello, {name: "rahul"}), document.getElementById("container"))
+	</script>
+</body>
+</html>
